@@ -39,9 +39,6 @@ function TermsAndConditions() {
             <Link to="/">
               <LogoMark />
             </Link>
-            <Link to="/" className="text-base font-semibold text-gray-900">
-              WizardLeads
-            </Link>
           </div>
           <div className="hidden sm:flex items-center gap-6 ml-auto">
             {NAV_LINKS.map((l) => (
@@ -230,7 +227,6 @@ function TermsAndConditions() {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
             <div className="flex items-center">
               <LogoMark />
-              <span className="text-lg font-semibold text-gray-900 ml-2">{BRAND}</span>
             </div>
             <div className="flex gap-6 flex-wrap">
               {NAV_LINKS.map((l) => (
