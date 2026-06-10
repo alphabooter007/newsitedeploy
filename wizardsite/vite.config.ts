@@ -4,7 +4,7 @@ export default defineConfig({
   nitro: {
     preset: "cloudflare-module",
     cloudflare: {
-      wrangler: { name: "wizardsite" },
+      wrangler: { name: "sitedeploy2" },
     },
   },
   tanstackStart: {
