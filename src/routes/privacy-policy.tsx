@@ -302,3 +302,4 @@ function PrivacyPolicy() {
     </div>
   );
 }
+
