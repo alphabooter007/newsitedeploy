@@ -33,14 +33,14 @@ function TermsAndConditions() {
               <a
                 key={l.label}
                 href={l.href}
-                className="text-gray-800 text-sm font-medium hover:opacity-60 transition-opacity whitespace-nowrap"
+                className="text-gray-800 text-sm font-semibold hover:opacity-60 transition-opacity whitespace-nowrap"
               >
                 {l.label}
               </a>
             ))}
             <a
               href="/#pricing"
-              className="bg-black text-white text-sm font-medium px-4 sm:px-5 py-2 rounded-xl hover:bg-gray-800 transition-colors"
+              className="bg-black text-white text-sm font-semibold px-4 sm:px-5 py-2 rounded-xl hover:bg-gray-800 transition-colors"
             >
               Get started
             </a>
@@ -61,7 +61,7 @@ function TermsAndConditions() {
                 key={l.label}
                 href={l.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-gray-800 text-sm font-medium hover:opacity-60"
+                className="text-gray-800 text-sm font-semibold hover:opacity-60"
               >
                 {l.label}
               </a>
@@ -69,7 +69,7 @@ function TermsAndConditions() {
             <a
               href="/#pricing"
               onClick={() => setMenuOpen(false)}
-              className="bg-black text-white text-sm font-medium px-4 py-2 rounded-xl text-center"
+              className="bg-black text-white text-sm font-semibold px-4 py-2 rounded-xl text-center"
             >
               Get started
             </a>
