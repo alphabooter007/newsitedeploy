@@ -13,7 +13,7 @@ import {
   Smartphone,
   Phone,
   Mail,
-  Building2,
+  User,
   Check,
   type LucideIcon,
 } from "lucide-react";
@@ -32,7 +32,7 @@ const NAV_LINKS: { label: string; href: string }[] = [
 ];
 
 const LogoMark = () => (
-  <span className="text-base font-bold text-white">Wizard Leads</span>
+  <img src="/wizardsite45.png" alt="Wizard Leads" className="h-8 w-auto" />
 );
 
 const SectionPill = ({ children }: { children: React.ReactNode }) => (
@@ -63,7 +63,8 @@ const SERVICE_CARDS: {
 function Index() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [businessName, setBusinessName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
@@ -77,7 +78,7 @@ function Index() {
       const res = await fetch(GHL_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone, email, businessName }),
+        body: JSON.stringify({ phone, email, firstName, lastName }),
       });
       if (!res.ok) throw new Error("Request failed");
       setSent(true);
@@ -186,10 +187,10 @@ function Index() {
                     <Phone size={22} className="text-white" />
                   </div>
                   <h2 className="text-xl sm:text-2xl font-semibold text-black tracking-tight">
-                    Get a free callback
+                    Get in contact
                   </h2>
                   <p className="text-sm text-gray-500 mt-1">
-                    Tell us about your business. We'll call you back today.
+                    Tell us about your business and we'll reach out today.
                   </p>
                 </div>
 
@@ -198,24 +199,36 @@ function Index() {
                     <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-xl">
                       ✓
                     </div>
-                    <h3 className="text-base font-semibold text-gray-900">Thanks. We'll reach out</h3>
+                    <h3 className="text-base font-semibold text-gray-900">Thanks, we'll be in touch</h3>
                     <p className="text-sm text-gray-500">
-                      Expect a call soon to discuss how we can grow your business.
+                      We'll reach out soon to discuss how we can grow your business.
                     </p>
                   </div>
                 ) : (
                   <>
                     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                      <div className="relative">
-                        <Building2 size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
-                        <input
-                          type="text"
-                          required
-                          placeholder="Business name"
-                          value={businessName}
-                          onChange={(e) => setBusinessName(e.target.value)}
-                          className="w-full pl-11 pr-4 py-3.5 text-base rounded-2xl border-2 border-gray-200 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent focus:bg-white transition-all"
-                        />
+                      <div className="flex gap-3">
+                        <div className="relative flex-1">
+                          <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                          <input
+                            type="text"
+                            required
+                            placeholder="First name"
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
+                            className="w-full pl-11 pr-4 py-3.5 text-base rounded-2xl border-2 border-gray-200 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent focus:bg-white transition-all"
+                          />
+                        </div>
+                        <div className="relative flex-1">
+                          <input
+                            type="text"
+                            required
+                            placeholder="Last name"
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
+                            className="w-full px-4 py-3.5 text-base rounded-2xl border-2 border-gray-200 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent focus:bg-white transition-all"
+                          />
+                        </div>
                       </div>
                       <div className="relative">
                         <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
@@ -244,7 +257,7 @@ function Index() {
                         disabled={sending}
                         className="w-full bg-black text-white text-sm font-semibold py-3.5 rounded-2xl hover:bg-gray-800 transition-colors disabled:opacity-60"
                       >
-                        {sending ? "Sending..." : "Call me back"}
+                        {sending ? "Sending..." : "Get in contact"}
                       </button>
                       {sendError && (
                         <p className="text-xs text-red-600 text-center">{sendError}</p>

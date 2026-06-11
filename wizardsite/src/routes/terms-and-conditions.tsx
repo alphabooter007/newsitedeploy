@@ -12,7 +12,7 @@ const NAV_LINKS: { label: string; href: string }[] = [
 ];
 
 const LogoMark = () => (
-  <span className="text-base font-bold text-white">Wizard Leads</span>
+  <img src="/wizardsite45.png" alt="Wizard Leads" className="h-8 w-auto" />
 );
 
 function TermsAndConditions() {
