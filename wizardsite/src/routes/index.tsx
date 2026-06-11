@@ -35,14 +35,6 @@ const LogoMark = () => (
   <span className="text-base font-bold text-white">Wizard Leads</span>
 );
 
-const Italic = ({ children }: { children: React.ReactNode }) => (
-  <span
-    style={{ fontFamily: "'Instrument Serif', serif", fontStyle: "italic", fontWeight: 400 }}
-  >
-    {children}
-  </span>
-);
-
 const SectionPill = ({ children }: { children: React.ReactNode }) => (
   <div className="flex justify-center">
     <span className="text-xs font-semibold uppercase tracking-widest text-gray-500 bg-gray-100 px-4 py-1.5 rounded-full">
@@ -179,8 +171,7 @@ function Index() {
               <h1 className="text-white text-3xl sm:text-4xl xl:text-5xl font-semibold leading-tight drop-shadow-lg">
                 Your business online
                 <br />
-                running on{" "}
-                <Italic>autopilot</Italic>
+                running on autopilot
               </h1>
               <p className="text-white/80 text-sm sm:text-base mt-3 max-w-md drop-shadow-md leading-relaxed">
                 We build your website, automate your reviews, and make sure you never miss a lead, all from one app on your phone.
@@ -279,7 +270,7 @@ function Index() {
         <div className="max-w-6xl mx-auto">
           <SectionPill>How it works</SectionPill>
           <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mt-4 mb-4 text-center">
-            Up and running in <Italic>days</Italic>, not months
+            Up and running in days, not months
           </h2>
           <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto mb-16 text-center">
             We handle everything. You focus on running your business.
@@ -307,7 +298,7 @@ function Index() {
         <div className="max-w-6xl mx-auto">
           <SectionPill>Everything you need</SectionPill>
           <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mt-4 mb-4 text-center">
-            One system to <Italic>grow</Italic> your business
+            One system to grow your business
           </h2>
           <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto text-center">
             Stop paying for 6 different tools. Everything runs from one platform, one app, one monthly fee.
@@ -332,7 +323,7 @@ function Index() {
         <div className="max-w-5xl mx-auto">
           <SectionPill>Pricing</SectionPill>
           <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mt-4 mb-4 text-center">
-            Simple, transparent <Italic>pricing</Italic>
+            Simple, transparent pricing
           </h2>
           <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto text-center">
             No setup fees. No contracts. Cancel anytime.
