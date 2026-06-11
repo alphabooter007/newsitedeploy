@@ -19,7 +19,7 @@ import {
 const VIDEO_URL =
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260602_150901_c45b90ec-18d7-42ff-90e2-b95d7109e330.mp4";
 
-const GHL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/5naD8LS1VInf6GbdExXJ/webhook-trigger/d313b644-1b0d-453a-b04e-0dc513af853e";
+const GHL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/5naD8LS1VInf6GbdExXJ/webhook-trigger/7718895f-c75b-45b3-81a7-808a09ac16fa";
 
 const BRAND = "WizardLeads";
 const EMAIL = "louisbruck@yahoo.com";
@@ -172,7 +172,7 @@ function Index() {
           {/* Bottom row */}
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <div className="lg:max-w-lg xl:max-w-2xl shrink-0">
-              <h1 className="text-white text-3xl sm:text-4xl xl:text-5xl font-medium leading-tight drop-shadow-lg">
+              <h1 className="text-white text-3xl sm:text-4xl xl:text-5xl font-semibold leading-tight drop-shadow-lg">
                 Your business online
                 <br />
                 running on{" "}

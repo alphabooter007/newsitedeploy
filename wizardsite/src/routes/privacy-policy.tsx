@@ -264,7 +264,7 @@ function PrivacyPolicy() {
                   {l.label}
                 </a>
               ))}
-              <Link to="/privacy-policy" className="text-sm text-gray-900 font-medium">Privacy Policy</Link>
+              <Link to="/privacy-policy" className="text-sm text-gray-900 font-semibold">Privacy Policy</Link>
               <Link to="/terms-and-conditions" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">Terms & Conditions</Link>
               <a href={`mailto:${EMAIL}`} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">Contact</a>
             </div>
