@@ -33,7 +33,7 @@ const NAV_LINKS: { label: string; href: string }[] = [
 ];
 
 const LogoMark = () => (
-  <img src="/wizardsite45.png" alt="Wizard Leads" className="h-8 w-auto" />
+  <img src="/wizardsite45.png" alt="Wizard Leads" className="h-10 w-auto" />
 );
 
 const SectionPill = ({ children }: { children: React.ReactNode }) => (
