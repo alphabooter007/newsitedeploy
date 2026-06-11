@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -14,18 +14,6 @@ const NAV_LINKS: { label: string; href: string }[] = [
 const LogoMark = () => (
   <span className="text-base font-bold text-white">Wizard Leads</span>
 );
-
-export const Route = createFileRoute("/terms-and-conditions")({
-  head: () => ({
-    meta: [
-      { title: `Terms and Conditions — ${BRAND}` },
-      { name: "description", content: `Terms and Conditions for ${BRAND}` },
-      { property: "og:title", content: `Terms and Conditions — ${BRAND}` },
-      { property: "og:description", content: `Terms and Conditions for ${BRAND}` },
-    ],
-  }),
-  component: TermsAndConditions,
-});
 
 function TermsAndConditions() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -248,4 +236,6 @@ function TermsAndConditions() {
     </div>
   );
 }
+
+export default TermsAndConditions;
 

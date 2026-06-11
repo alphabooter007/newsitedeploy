@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import {
   Menu,
@@ -15,18 +15,6 @@ import {
   Check,
   type LucideIcon,
 } from "lucide-react";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Your business online, running on autopilot" },
-      { name: "description", content: "We build your website, automate your reviews, and make sure you never miss a lead — all from one app on your phone." },
-      { property: "og:title", content: "Your business online, running on autopilot" },
-      { property: "og:description", content: "We build your website, automate your reviews, and make sure you never miss a lead — all from one app on your phone." },
-    ],
-  }),
-  component: Index,
-});
 
 const VIDEO_URL =
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260602_150901_c45b90ec-18d7-42ff-90e2-b95d7109e330.mp4";
@@ -328,7 +316,7 @@ function Index() {
             <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col">
               <div className="text-lg font-semibold text-gray-900">Starter</div>
               <div className="mt-2">
-                <span className="text-4xl font-bold text-gray-900">$197</span>
+                <span className="text-4xl font-bold text-gray-900">$147</span>
                 <span className="text-base font-normal text-gray-400">/month</span>
               </div>
               <p className="text-sm text-gray-500 mt-2 mb-6">Everything you need to get online and start getting found.</p>
@@ -337,7 +325,6 @@ function Index() {
                 {[
                   "Professional business website",
                   "Google Business profile setup",
-                  "Automated Google review requests",
                   "Online booking calendar",
                   "Mobile app access",
                   "Monthly performance report",
@@ -372,7 +359,6 @@ function Index() {
                   "Google Maps SEO optimization",
                   "CRM & lead pipeline management",
                   "Tap-to-pay mobile payments",
-                  "Reputation monitoring dashboard",
                   "Unlimited chat & email support",
                   "Priority setup (live in 24 hours)",
                 ].map((f) => (
@@ -418,4 +404,6 @@ function Index() {
     </div>
   );
 }
+
+export default Index;
 

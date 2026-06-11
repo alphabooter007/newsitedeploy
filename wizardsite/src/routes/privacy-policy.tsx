@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -13,18 +13,6 @@ const NAV_LINKS: { label: string; href: string }[] = [
 const LogoMark = () => (
   <span className="text-base font-bold text-white">Wizard Leads</span>
 );
-
-export const Route = createFileRoute("/privacy-policy")({
-  head: () => ({
-    meta: [
-      { title: `Privacy Policy — ${BRAND}` },
-      { name: "description", content: `Privacy Policy for ${BRAND}` },
-      { property: "og:title", content: `Privacy Policy — ${BRAND}` },
-      { property: "og:description", content: `Privacy Policy for ${BRAND}` },
-    ],
-  }),
-  component: PrivacyPolicy,
-});
 
 function PrivacyPolicy() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -290,4 +278,6 @@ function PrivacyPolicy() {
     </div>
   );
 }
+
+export default PrivacyPolicy;
 
