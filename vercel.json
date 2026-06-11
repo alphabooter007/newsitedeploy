@@ -1,0 +1,7 @@
+{
+  "framework": null,
+  "installCommand": "npm install --prefix wizardsite",
+  "buildCommand": "npm run build --prefix wizardsite",
+  "outputDirectory": "wizardsite/dist",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
