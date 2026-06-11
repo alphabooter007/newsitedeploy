@@ -14,6 +14,7 @@ import {
   Phone,
   Mail,
   User,
+  Building2,
   Check,
   type LucideIcon,
 } from "lucide-react";
@@ -65,6 +66,7 @@ function Index() {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [businessName, setBusinessName] = useState("");
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
@@ -78,7 +80,7 @@ function Index() {
       const res = await fetch(GHL_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone, email, firstName, lastName }),
+        body: JSON.stringify({ phone, email, firstName, lastName, businessName }),
       });
       if (!res.ok) throw new Error("Request failed");
       setSent(true);
@@ -229,6 +231,16 @@ function Index() {
                             className="w-full px-4 py-3.5 text-base rounded-2xl border-2 border-gray-200 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent focus:bg-white transition-all"
                           />
                         </div>
+                      </div>
+                      <div className="relative">
+                        <Building2 size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                        <input
+                          type="text"
+                          placeholder="Business name (optional)"
+                          value={businessName}
+                          onChange={(e) => setBusinessName(e.target.value)}
+                          className="w-full pl-11 pr-4 py-3.5 text-base rounded-2xl border-2 border-gray-200 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent focus:bg-white transition-all"
+                        />
                       </div>
                       <div className="relative">
                         <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
