@@ -12,6 +12,8 @@ import {
   BarChart3,
   Smartphone,
   Phone,
+  Mail,
+  Building2,
   Check,
   type LucideIcon,
 } from "lucide-react";
@@ -68,6 +70,8 @@ const SERVICE_CARDS: {
 
 function Index() {
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [businessName, setBusinessName] = useState("");
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
@@ -81,7 +85,7 @@ function Index() {
       const res = await fetch(GHL_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone }),
+        body: JSON.stringify({ phone, email, businessName }),
       });
       if (!res.ok) throw new Error("Request failed");
       setSent(true);
@@ -194,7 +198,7 @@ function Index() {
                     Get a free callback
                   </h2>
                   <p className="text-sm text-gray-500 mt-1">
-                    Drop your number — we'll call you back today.
+                    Tell us about your business — we'll call you back today.
                   </p>
                 </div>
 
@@ -203,14 +207,36 @@ function Index() {
                     <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-xl">
                       ✓
                     </div>
-                    <h3 className="text-base font-semibold text-gray-900">Got it — we'll call you</h3>
+                    <h3 className="text-base font-semibold text-gray-900">Thanks — we'll reach out</h3>
                     <p className="text-sm text-gray-500">
-                      Expect a call soon to discuss your business.
+                      Expect a call soon to discuss how we can grow your business.
                     </p>
                   </div>
                 ) : (
                   <>
                     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                      <div className="relative">
+                        <Building2 size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                        <input
+                          type="text"
+                          required
+                          placeholder="Business name"
+                          value={businessName}
+                          onChange={(e) => setBusinessName(e.target.value)}
+                          className="w-full pl-11 pr-4 py-3.5 text-base rounded-2xl border-2 border-gray-200 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent focus:bg-white transition-all"
+                        />
+                      </div>
+                      <div className="relative">
+                        <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                        <input
+                          type="email"
+                          required
+                          placeholder="you@example.com"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          className="w-full pl-11 pr-4 py-3.5 text-base rounded-2xl border-2 border-gray-200 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent focus:bg-white transition-all"
+                        />
+                      </div>
                       <div className="relative">
                         <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
                         <input
