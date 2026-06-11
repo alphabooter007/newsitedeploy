@@ -59,12 +59,12 @@ const SERVICE_CARDS: {
 }[] = [
   { Icon: Globe, bg: "bg-blue-50 text-blue-600", title: "Professional Website", desc: "A fast, mobile-friendly website built for your business. Designed to turn visitors into customers." },
   { Icon: MapPin, bg: "bg-green-50 text-green-600", title: "Google Maps & Local SEO", desc: "Show up when people in your area search for what you do. We optimize your Google Business profile so you rank higher." },
-  { Icon: PhoneMissed, bg: "bg-red-50 text-red-600", title: "Missed Call Text-Back", desc: "Miss a call? Your system instantly texts the customer back so you never lose a lead — even when you're on a job." },
+  { Icon: PhoneMissed, bg: "bg-red-50 text-red-600", title: "Missed Call Text-Back", desc: "Miss a call? Your system instantly texts the customer back so you never lose a lead, even when you're on a job." },
   { Icon: Calendar, bg: "bg-purple-50 text-purple-600", title: "Online Booking", desc: "Let customers book appointments directly from your website or Google profile. No back-and-forth calls needed." },
   { Icon: CreditCard, bg: "bg-emerald-50 text-emerald-600", title: "Tap-to-Pay Payments", desc: "Collect payments right from your phone with the app. No invoicing headaches, no chasing checks." },
   { Icon: MessageSquare, bg: "bg-orange-50 text-orange-600", title: "CRM & Lead Management", desc: "Every lead, conversation, and customer in one place. Know exactly who to follow up with and when." },
   { Icon: BarChart3, bg: "bg-indigo-50 text-indigo-600", title: "Performance Dashboard", desc: "See your leads, bookings, and website performance all in one dashboard. Know what's working at a glance." },
-  { Icon: Smartphone, bg: "bg-pink-50 text-pink-600", title: "Everything on Your Phone", desc: "Manage your entire business from one mobile app. Leads, bookings, payments — all in your pocket." },
+  { Icon: Smartphone, bg: "bg-pink-50 text-pink-600", title: "Everything on Your Phone", desc: "Manage your entire business from one mobile app. Leads, bookings, payments, all in your pocket." },
 ];
 
 
@@ -183,7 +183,7 @@ function Index() {
                 <Italic>autopilot</Italic>
               </h1>
               <p className="text-white/80 text-sm sm:text-base mt-3 max-w-md drop-shadow-md leading-relaxed">
-                We build your website, automate your reviews, and make sure you never miss a lead — all from one app on your phone.
+                We build your website, automate your reviews, and make sure you never miss a lead, all from one app on your phone.
               </p>
             </div>
 
@@ -198,7 +198,7 @@ function Index() {
                     Get a free callback
                   </h2>
                   <p className="text-sm text-gray-500 mt-1">
-                    Tell us about your business — we'll call you back today.
+                    Tell us about your business. We'll call you back today.
                   </p>
                 </div>
 
@@ -207,7 +207,7 @@ function Index() {
                     <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-xl">
                       ✓
                     </div>
-                    <h3 className="text-base font-semibold text-gray-900">Thanks — we'll reach out</h3>
+                    <h3 className="text-base font-semibold text-gray-900">Thanks. We'll reach out</h3>
                     <p className="text-sm text-gray-500">
                       Expect a call soon to discuss how we can grow your business.
                     </p>
@@ -287,7 +287,7 @@ function Index() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
             {[
               { t: "We learn about your business", d: "A quick 15-minute call to understand what you do, who your customers are, and what's not working right now. No jargon, no pressure." },
-              { t: "We build your system", d: "Within a few days, your website is live, your Google profile is optimized, and your automations are running — reviews, missed calls, bookings, all handled." },
+              { t: "We build your system", d: "Within a few days, your website is live, your Google profile is optimized, and your automations are running, reviews, missed calls, bookings, all handled." },
               { t: "You get leads on your phone", d: "Every new lead, review, and booking shows up in one app on your phone. You just pick up and close the deal." },
             ].map((s, i) => (
               <div key={i} className="text-center">
@@ -376,7 +376,7 @@ function Index() {
                 <span className="text-4xl font-bold text-gray-900">$297</span>
                 <span className="text-base font-normal text-gray-400">/month</span>
               </div>
-              <p className="text-sm text-gray-500 mt-2 mb-6">The full system — never miss a lead, dominate your local market.</p>
+              <p className="text-sm text-gray-500 mt-2 mb-6">The full system, never miss a lead, dominate your local market.</p>
               <div className="h-px bg-gray-100 my-6" />
               <ul className="flex flex-col gap-3 flex-1">
                 {[
