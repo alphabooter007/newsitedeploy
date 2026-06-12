@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Menu,
   X,
@@ -71,6 +72,7 @@ function Index() {
   const [sent, setSent] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [consentChecked, setConsentChecked] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -264,10 +266,20 @@ function Index() {
                           className="w-full pl-11 pr-4 py-3.5 text-base rounded-2xl border-2 border-gray-200 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent focus:bg-white transition-all"
                         />
                       </div>
+                      <label className="flex items-start gap-2.5 cursor-pointer">
+                        <Checkbox
+                          checked={consentChecked}
+                          onCheckedChange={(v) => setConsentChecked(v === true)}
+                          className="mt-0.5 h-4 w-4"
+                        />
+                        <span className="text-xs text-gray-600 leading-snug">
+                          I agree to receive SMS messages from Wizard Leads
+                        </span>
+                      </label>
                       <button
                         type="submit"
-                        disabled={sending}
-                        className="w-full bg-black text-white text-sm font-semibold py-3.5 rounded-2xl hover:bg-gray-800 transition-colors disabled:opacity-60"
+                        disabled={sending || !consentChecked}
+                        className="w-full bg-black text-white text-sm font-semibold py-3.5 rounded-2xl transition-colors disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-800"
                       >
                         {sending ? "Sending..." : "Get in contact"}
                       </button>
@@ -276,7 +288,7 @@ function Index() {
                       )}
                     </form>
                     <p className="text-xs text-gray-400 text-center leading-relaxed">
-                      By submitting, you agree to receive SMS messages from Wizard Leads. Msg & data rates may apply. Reply STOP to opt out.{" "}
+                      By submitting, you agree to receive SMS messages from Wizard Leads. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out.{" "}
                       <Link to="/privacy-policy" className="underline hover:text-gray-600">Privacy</Link>{" "}
                       ·{" "}
                       <Link to="/terms-and-conditions" className="underline hover:text-gray-600">Terms</Link>
