@@ -389,9 +389,9 @@ function Index() {
                   </li>
                 ))}
               </ul>
-              <a href="#" className="mt-8 w-full py-3 rounded-2xl text-sm font-semibold bg-gray-100 text-gray-900 hover:bg-gray-200 transition-colors text-center">
-                Get started
-              </a>
+              <Link to="/contact" className="mt-8 w-full py-3 rounded-2xl text-sm font-semibold bg-gray-100 text-gray-900 hover:bg-gray-200 transition-colors text-center">
+                Contact
+              </Link>
             </div>
 
             {/* Growth */}
@@ -422,9 +422,9 @@ function Index() {
                   </li>
                 ))}
               </ul>
-              <a href="#" className="mt-8 w-full py-3 rounded-2xl text-sm font-semibold bg-black text-white hover:bg-gray-800 transition-colors text-center">
-                Get started
-              </a>
+              <Link to="/contact" className="mt-8 w-full py-3 rounded-2xl text-sm font-semibold bg-black text-white hover:bg-gray-800 transition-colors text-center">
+                Contact
+              </Link>
             </div>
           </div>
         </div>
@@ -438,7 +438,7 @@ function Index() {
               <LogoMark />
             </div>
             <div className="flex gap-6 flex-wrap">
-              {[...NAV_LINKS, { label: "Contact", href: "#" }].map((l) => (
+              {[...NAV_LINKS, { label: "Contact", href: "/contact" }].map((l) => (
                 <a key={l.label} href={l.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
                   {l.label}
                 </a>
