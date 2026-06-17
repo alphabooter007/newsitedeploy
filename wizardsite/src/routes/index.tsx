@@ -34,7 +34,7 @@ const NAV_LINKS: { label: string; href: string }[] = [
 ];
 
 const LogoMark = () => (
-  <img src="/wizardsite45.png" alt="Wizard Leads" className="h-10 w-auto" />
+  <img src="/wizard.png" alt="Wizard Leads" className="h-11 md:h-14 w-auto" />
 );
 
 const SectionPill = ({ children }: { children: React.ReactNode }) => (
@@ -171,9 +171,9 @@ function Index() {
           <div className="flex-1" />
 
           {/* Bottom row */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-            <div className="lg:max-w-lg xl:max-w-2xl shrink-0">
-              <h1 className="text-white text-3xl sm:text-4xl xl:text-5xl font-semibold leading-tight drop-shadow-lg">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div className="md:max-w-md lg:max-w-lg xl:max-w-2xl shrink-0">
+              <h1 className="text-white text-3xl sm:text-4xl md:text-5xl xl:text-5xl font-semibold leading-tight drop-shadow-lg">
                 Your business online
                 <br />
                 running on autopilot
@@ -184,7 +184,7 @@ function Index() {
             </div>
 
             {/* Contact form card */}
-            <div className="w-full lg:w-[min(420px,42%)] shrink-0">
+            <div className="w-full md:w-[min(400px,48%)] lg:w-[min(420px,42%)] shrink-0">
               <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden p-5 sm:p-7 flex flex-col gap-5">
                 <div className="text-center">
                   <div className="mx-auto w-12 h-12 rounded-2xl bg-black flex items-center justify-center mb-3">
