@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Menu,
@@ -15,6 +15,7 @@ import {
   User,
   Building2,
   Check,
+  ChevronDown,
   type LucideIcon,
 } from "lucide-react";
 
@@ -30,6 +31,19 @@ const NAV_LINKS: { label: string; href: string }[] = [
   { label: "Services", href: "#services" },
   { label: "Pricing", href: "#pricing" },
 ];
+
+const COUNTRIES = [
+  { flag: "🇺🇸", code: "+1", name: "United States" },
+  { flag: "🇨🇦", code: "+1", name: "Canada" },
+  { flag: "🇬🇧", code: "+44", name: "United Kingdom" },
+  { flag: "🇦🇺", code: "+61", name: "Australia" },
+  { flag: "🇩🇪", code: "+49", name: "Germany" },
+  { flag: "🇫🇷", code: "+33", name: "France" },
+  { flag: "🇱🇺", code: "+352", name: "Luxembourg" },
+  { flag: "🇳🇱", code: "+31", name: "Netherlands" },
+  { flag: "🇧🇪", code: "+32", name: "Belgium" },
+  { flag: "🇮🇪", code: "+353", name: "Ireland" },
+] as const;
 
 const LogoMark = () => (
   <img src="/wizard.png" alt="Wizard Leads" className="h-11 md:h-14 w-auto" />
@@ -69,6 +83,20 @@ function Index() {
   const [sendError, setSendError] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [consentChecked, setConsentChecked] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState(COUNTRIES[0]);
+  const [countryOpen, setCountryOpen] = useState(false);
+  const countryRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!countryOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (countryRef.current && !countryRef.current.contains(e.target as Node)) {
+        setCountryOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [countryOpen]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -78,7 +106,7 @@ function Index() {
       const res = await fetch(GHL_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone, email, firstName, lastName, businessName }),
+        body: JSON.stringify({ phone: `${selectedCountry.code}${phone}`, email, firstName, lastName, businessName }),
       });
       if (!res.ok) throw new Error("Request failed");
       setSent(true);
@@ -251,16 +279,45 @@ function Index() {
                           className="w-full pl-11 pr-4 py-3.5 text-base rounded-2xl border-2 border-gray-200 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent focus:bg-white transition-all"
                         />
                       </div>
-                      <div className="relative">
-                        <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
-                        <input
-                          type="tel"
-                          required
-                          placeholder="(555) 123-4567"
-                          value={phone}
-                          onChange={(e) => setPhone(e.target.value)}
-                          className="w-full pl-11 pr-4 py-3.5 text-base rounded-2xl border-2 border-gray-200 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent focus:bg-white transition-all"
-                        />
+                      <div className="relative" ref={countryRef}>
+                        <div className="flex rounded-2xl border-2 border-gray-200 bg-gray-50 focus-within:ring-2 focus-within:ring-black focus-within:border-transparent focus-within:bg-white transition-all">
+                          <button
+                            type="button"
+                            onClick={() => setCountryOpen((v) => !v)}
+                            className="flex items-center gap-1.5 pl-3.5 pr-2.5 py-3.5 text-base text-gray-700 border-r border-gray-200 shrink-0 cursor-pointer select-none"
+                          >
+                            <span className="text-base leading-none">{selectedCountry.flag}</span>
+                            <span className="text-sm font-medium text-gray-600">{selectedCountry.code}</span>
+                            <ChevronDown size={14} className="text-gray-400" />
+                          </button>
+                          <input
+                            type="tel"
+                            required
+                            placeholder="(555) 123-4567"
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                            className="flex-1 min-w-0 pl-3 pr-4 py-3.5 text-base bg-transparent placeholder-gray-400 focus:outline-none"
+                          />
+                        </div>
+                        {countryOpen && (
+                          <div className="absolute left-0 right-0 top-full mt-1.5 bg-white rounded-xl shadow-lg border border-gray-100 py-1.5 z-30 max-h-56 overflow-y-auto">
+                            {COUNTRIES.map((c) => (
+                              <button
+                                type="button"
+                                key={c.code + c.name}
+                                onClick={() => {
+                                  setSelectedCountry(c);
+                                  setCountryOpen(false);
+                                }}
+                                className={`w-full flex items-center gap-2.5 px-3.5 py-2 text-sm text-left hover:bg-gray-50 transition-colors ${selectedCountry.name === c.name ? "bg-gray-50 font-medium" : ""}`}
+                              >
+                                <span className="text-base leading-none">{c.flag}</span>
+                                <span className="text-gray-700">{c.name}</span>
+                                <span className="ml-auto text-gray-400 text-xs">{c.code}</span>
+                              </button>
+                            ))}
+                          </div>
+                        )}
                       </div>
                       <label className="flex items-start gap-2.5 cursor-pointer">
                         <Checkbox
