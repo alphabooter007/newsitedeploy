@@ -8,9 +8,7 @@ import {
   MapPin,
   PhoneMissed,
   Calendar,
-  CreditCard,
   MessageSquare,
-  BarChart3,
   Smartphone,
   Phone,
   Mail,
@@ -55,9 +53,7 @@ const SERVICE_CARDS: {
   { Icon: MapPin, bg: "bg-green-50 text-green-600", title: "Google Maps & Local SEO", desc: "Show up when people in your area search for what you do. We optimize your Google Business profile so you rank higher." },
   { Icon: PhoneMissed, bg: "bg-red-50 text-red-600", title: "Missed Call Text-Back", desc: "Miss a call? Your system instantly texts the customer back so you never lose a lead, even when you're on a job." },
   { Icon: Calendar, bg: "bg-purple-50 text-purple-600", title: "Online Booking", desc: "Let customers book appointments directly from your website or Google profile. No back-and-forth calls needed." },
-  { Icon: CreditCard, bg: "bg-emerald-50 text-emerald-600", title: "Tap-to-Pay Payments", desc: "Collect payments right from your phone with the app. No invoicing headaches, no chasing checks." },
   { Icon: MessageSquare, bg: "bg-orange-50 text-orange-600", title: "CRM & Lead Management", desc: "Every lead, conversation, and customer in one place. Know exactly who to follow up with and when." },
-  { Icon: BarChart3, bg: "bg-indigo-50 text-indigo-600", title: "Performance Dashboard", desc: "See your leads, bookings, and website performance all in one dashboard. Know what's working at a glance." },
   { Icon: Smartphone, bg: "bg-pink-50 text-pink-600", title: "Everything on Your Phone", desc: "Manage your entire business from one mobile app. Leads, bookings, payments, all in your pocket." },
 ];
 
@@ -171,9 +167,9 @@ function Index() {
           <div className="flex-1" />
 
           {/* Bottom row */}
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <div className="md:max-w-md lg:max-w-lg xl:max-w-2xl shrink-0">
-              <h1 className="text-white text-3xl sm:text-4xl md:text-5xl xl:text-5xl font-semibold leading-tight drop-shadow-lg">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-10">
+            <div className="lg:max-w-lg xl:max-w-2xl shrink-0">
+              <h1 className="text-white text-3xl sm:text-4xl xl:text-5xl font-semibold leading-tight drop-shadow-lg">
                 Your business online
                 <br />
                 running on autopilot
@@ -184,7 +180,7 @@ function Index() {
             </div>
 
             {/* Contact form card */}
-            <div className="w-full md:w-[min(400px,48%)] lg:w-[min(420px,42%)] shrink-0">
+            <div className="w-full lg:w-[min(420px,42%)] shrink-0 mt-4 lg:mt-0">
               <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden p-5 sm:p-7 flex flex-col gap-5">
                 <div className="text-center">
                   <div className="mx-auto w-12 h-12 rounded-2xl bg-black flex items-center justify-center mb-3">
@@ -340,7 +336,7 @@ function Index() {
           <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto text-center">
             Stop paying for 6 different tools. Everything runs from one platform, one app, one monthly fee.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-16">
             {SERVICE_CARDS.map(({ Icon, bg, title, desc }) => (
               <div key={title} className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${bg}`}>
